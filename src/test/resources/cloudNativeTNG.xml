@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Native mobile testing Suite for EPAM Mobile Cloud">
+    <parameter name="appType" value="native"></parameter>
+    <!--<parameter name="deviceName" value="GOOGLE Pixel 3 XL"></parameter>-->
+    <parameter name="platformName" value="Android"></parameter>
+    <parameter name="appPackage" value="platkovsky.alexey.epamtestapp"></parameter>
+    <parameter name="appActivity" value="activities.LoginActivity"></parameter>
+    <test name="Cloud Native tests">
+        <groups>
+            <run>
+                <include name="native"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="scenarios"/>
+        </packages>
+    </test>
+</suite>
