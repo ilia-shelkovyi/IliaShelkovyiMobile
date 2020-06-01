@@ -47,7 +47,7 @@ public class NativePageObject  {
     WebElement registerNewAccountBtn;
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.TextView")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@label='EPAM Test App']")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@label='Budget']")
     WebElement frameTitle;
 
     public NativePageObject(AppiumDriver appiumDriver) {

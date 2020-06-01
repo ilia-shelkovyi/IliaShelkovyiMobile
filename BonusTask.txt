@@ -1,0 +1,1 @@
+For cloud testing you should set you EPAM Mobile cloud token as system environment variable TOKEN.
