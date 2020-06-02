@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import setup.BaseTest;
 
 import static utils.PropertyReader.get;
+import static utils.TextFromScreenshot.getToastMessage;
 
 public class nativeMobileTests extends BaseTest {
 
@@ -21,6 +22,8 @@ public class nativeMobileTests extends BaseTest {
         getPo().getWelement("loginEmail").sendKeys(get("email"));
         getPo().getWelement("loginPwd").sendKeys(get("password"));
         getPo().getWelement("signInBtn").click();
+
+        assert !getToastMessage(getDriver()).contains(get("error")) : get("error");
 
         assert getPo().getWelement("frameTitle").getText().equals(get("title")) : "This is not expected title";
         System.out.println("Android native test done");
