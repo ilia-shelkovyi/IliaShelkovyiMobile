@@ -20,13 +20,13 @@ public class TextFromScreenshot {
     private static final String TESSDATA_PATH = "src/assets/tessdata/";
 
     public static String getToastMessage(AppiumDriver appiumDriver) {
-    	try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		captureScreenshot(TESSDATA_PATH, appiumDriver);
-		String str = "";
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        captureScreenshot(TESSDATA_PATH, appiumDriver);
+        String str = "";
         TessBaseAPI api = new TessBaseAPI();
         api.Init(TESSDATA_PATH, "eng");
         PIX image = pixRead(TESSDATA_PATH + "ToastMessage.png");
@@ -37,16 +37,16 @@ public class TextFromScreenshot {
         api.End();
         outText.deallocate();
         pixDestroy(image);
-		return str;
-	}
+        return str;
+    }
     	
     private static void captureScreenshot(String filePath, AppiumDriver appiumDriver) {
         File scrFile = ((TakesScreenshot) appiumDriver).getScreenshotAs(OutputType.FILE);	
-    	try {
-    		FileUtils.copyFile(scrFile,  new File(filePath + "ToastMessage.png"));
-    	} catch (IOException e) {
-    			e.printStackTrace();
-    	}
+        try {
+            FileUtils.copyFile(scrFile,  new File(filePath + "ToastMessage.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
