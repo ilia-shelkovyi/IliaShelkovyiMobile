@@ -29,9 +29,15 @@ public class nativeMobileTests extends BaseTest {
 
     @Test(groups = {"native"}, description = "Make sure that you are getting error without registration")
     public void nativeTestWithoutRegistration() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+    	//Account registration
+        getPo().getWelement("registerBtn").click();
+        getPo().getWelement("registrationEmail").sendKeys(get("email"));
+        getPo().getWelement("registrationUsername").sendKeys(get("username"));
+        getPo().getWelement("registrationPassword").sendKeys(get("password"));
+        getPo().getWelement("registrationConfirmPassword").sendKeys(get("password"));
+        getPo().getWelement("registerNewAccountBtn").click();
+
         //Sign in
-        getPo().getWelement("loginEmail").sendKeys(get("email"));
-        getPo().getWelement("loginPwd").sendKeys(get("password"));
         getPo().getWelement("signInBtn").click();
 
         assert getToastMessage(getDriver()).contains(get("error")) : "No expected error";
