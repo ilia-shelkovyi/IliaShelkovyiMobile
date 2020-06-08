@@ -29,7 +29,7 @@ public class webMobileTests extends BaseTest {
         }
 
         assert check : "Results are empty";
-        System.out.println("Android web test done");
+        System.out.println("Web test done");
     }
 
 }

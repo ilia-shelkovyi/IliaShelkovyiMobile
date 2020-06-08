@@ -23,10 +23,19 @@ public class nativeMobileTests extends BaseTest {
         getPo().getWelement("loginPwd").sendKeys(get("password"));
         getPo().getWelement("signInBtn").click();
 
-        assert !getToastMessage(getDriver()).contains(get("error")) : get("error");
-
         assert getPo().getWelement("frameTitle").getText().equals(get("title")) : "This is not expected title";
-        System.out.println("Android native test done");
+        System.out.println("Native test done");
+    }
+
+    @Test(groups = {"native"}, description = "Make sure that you are getting error without registration")
+    public void nativeTestWithoutRegistration() throws IllegalAccessException, NoSuchFieldException, InstantiationException {
+        //Sign in
+        getPo().getWelement("loginEmail").sendKeys(get("email"));
+        getPo().getWelement("loginPwd").sendKeys(get("password"));
+        getPo().getWelement("signInBtn").click();
+
+        assert getToastMessage(getDriver()).contains(get("error")) : "No expected error";
+        System.out.println("Native test on error done");
     }
 
 }
