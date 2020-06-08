@@ -23,7 +23,7 @@ public class BaseTest implements IDriver {
     }
 
     @Parameters({"platformName","appType","deviceName","browserName","app"})
-    @BeforeSuite(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp(String platformName, String appType, String deviceName, @Optional("") String browserName, @Optional("") String app) throws Exception {
         System.out.println("Before: app type - "+appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
@@ -31,7 +31,7 @@ public class BaseTest implements IDriver {
 
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
         System.out.println("After");
         appiumDriver.closeApp();
